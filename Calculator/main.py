@@ -1,5 +1,4 @@
-import calculator
-from procesador import Procesador
+from calculator import Calculator
 
 if __name__ == '__main__':
-    calculator.Calculator(Procesador)
+    Calculator()

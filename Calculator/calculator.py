@@ -1,9 +1,29 @@
 import sys
 
 class Calculator:
-    def __init__(self, procesador):
+    def __init__(self):
         self.interface()
-        self.procesador = procesador
+    
+    def addition(self):
+        number1 = float(input("Primer numero: "))
+        number2 = float(input("Segundo numero: "))
+        print(number1 + number2)
+    def subtraction(self):
+        pass
+    def multiplication(self):
+        pass
+    def division(self):
+        pass
+    def integer_division(self):
+        pass
+    def modulo(self):
+        pass
+    def power(self):
+        pass
+    def square_root(self):
+        pass
+    def historial(self):
+        pass
     
     def interface(self):
         menu = """
@@ -29,24 +49,25 @@ class Calculator:
         print(menu)
         
         operation = int(input("Elige una operacion:\n>>> "))
+        
         if operation == 1:
-            self.procesador.addiction()
+            self.addiction()
         elif operation == 2:
-            self.procesador.subtraction()
+            self.subtraction()
         elif operation == 3:
-            self.procesador.multiplication()
+            self.multiplication()
         elif operation == 4:
-            self.procesador.division()
+            self.division()
         elif operation == 5:
-            self.procesador.integer_division()
+            self.integer_division()
         elif operation == 6:
-            self.procesador.modulo()
+            self.modulo()
         elif operation == 7:
-            self.procesador.power()
+            self.power()
         elif operation == 8:
-            self.procesador.square_root()
+            self.square_root()
         elif operation == 9:
-            self.procesador.historial()
+            self.historial()
         elif operation == 11:
             sys.exit()
         else:
