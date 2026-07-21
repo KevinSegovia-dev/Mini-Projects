@@ -1,26 +1,26 @@
 from pathlib import Path
 import shutil
 
-def organizar_archivos():
+def organize_files():
+    downloads_path = Path.home() / "Downloads"
+    
+    documents_path = Path.home() / "Documents"
+    
 
-    carpeta_principal = Path.home() / "Desktop" / "Separador_de_archivos"
+    downloads_list = downloads_path.iterdir()
 
-    lista = carpeta_principal.iterdir()
+    for file in downloads_list:
+        if file.is_file() and file.suffix:
+    	    # 1. We get the extension name (e.g., 'pdf', 'jpg') in lowercase.
+    	    name_folder = file.suffix.replace(".", "").lower()
 
-    extensiones = [".zip", ".txt", ".sb3", ".pdf", ".docx", ".xlsx", ".json"]
+    	    # 2. We define the destination folder path.
+    	    folder_path = documents_path / name_folder
 
-    for archivo in lista:
+    	    # 3. Create the folder if it does not exist.
+    	    folder_path.mkdir(exist_ok=True)
 
-        if archivo.is_file():
+    	    # 4. Move the file to the new folder.
+    	    shutil.move(str(file), str(folder_path))
 
-            if archivo.suffix in extensiones:
-
-                nombre_carpeta = archivo.suffix.replace(".", "")
-
-                ruta_carpeta = carpeta_principal / nombre_carpeta
-
-                ruta_carpeta.mkdir(exist_ok=True)
-
-                shutil.move(str(archivo), str(ruta_carpeta))
-
-organizar_archivos()
+organize_files()
