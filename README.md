@@ -1,6 +1,5 @@
 # Mini Projects
-
-A collection of small projects created throughout my journey as a programmer.
+A collection of Python projects created throughout my journey as a programmer.
 
 ## About
 
