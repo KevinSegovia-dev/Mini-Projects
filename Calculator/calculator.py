@@ -1,29 +1,14 @@
 import sys
+import time
+from functions import *
+from colorama import Fore, Back, Style, init
+
+init(autoreset=True)
 
 class Calculator:
     def __init__(self):
         self.interface()
-    
-    def addition(self):
-        number1 = float(input("Primer numero: "))
-        number2 = float(input("Segundo numero: "))
-        print(number1 + number2)
-    def subtraction(self):
-        pass
-    def multiplication(self):
-        pass
-    def division(self):
-        pass
-    def integer_division(self):
-        pass
-    def modulo(self):
-        pass
-    def power(self):
-        pass
-    def square_root(self):
-        pass
-    def historial(self):
-        pass
+        self.clear_terminal()
     
     def interface(self):
         menu = """
@@ -43,32 +28,63 @@ class Calculator:
      ████████████████████████  ║ 7) Power.                        ║
      █▄─▄███─▄▄─█▄─█─▄█▄─▄▄─█  ║ 8) Square root.                  ║
      ██─██▀█─██─██─█─███─▄█▀█  ║ 9) Historial.                    ║
-     ▀▄▄▄▄▄▀▄▄▄▄▀▀▄▄▄▀▀▄▄▄▄▄█  ║ 11) exit.                        ║
+     ▀▄▄▄▄▄▀▄▄▄▄▀▀▄▄▄▀▀▄▄▄▄▄█  ║ 10) exit.                        ║ 
                                ╚══════════════════════════════════╝
         """
-        print(menu)
-        
-        operation = int(input("Elige una operacion:\n>>> "))
-        
-        if operation == 1:
-            self.addiction()
-        elif operation == 2:
-            self.subtraction()
-        elif operation == 3:
-            self.multiplication()
-        elif operation == 4:
-            self.division()
-        elif operation == 5:
-            self.integer_division()
-        elif operation == 6:
-            self.modulo()
-        elif operation == 7:
-            self.power()
-        elif operation == 8:
-            self.square_root()
-        elif operation == 9:
-            self.historial()
-        elif operation == 11:
-            sys.exit()
-        else:
-            operation = int(input("Elige una operacion:\n>>> "))
+        while True:
+            try:
+                print(menu)
+                operation = int(input(f"Elige una operacion:\n{Fore.MAGENTA}>>>{Fore.RESET} "))
+            except ValueError as e:
+                print(Fore.RED + f"[ERROR] {e}")
+            clear_terminal()
+            
+            if operation == 1:
+                print(f"{Style.BRIGHT}=== Addition ==={Fore.RESET}\n")
+                addition()
+                
+            elif operation == 2:
+                print(f"{Style.BRIGHT}=== Subtraction ==={Fore.RESET}\n")
+                subtraction()
+
+            elif operation == 3:
+                print(f"{Style.BRIGHT}=== Multiplication ==={Fore.RESET}\n")
+                multiplication()
+
+            elif operation == 4:
+                print(f"{Style.BRIGHT}=== Division ==={Fore.RESET}\n")
+                division()
+
+            elif operation == 5:
+                print(f"{Style.BRIGHT}=== Integer division ==={Fore.RESET}\n")
+                integer_division()
+
+            elif operation == 6:
+                print(f"{Style.BRIGHT}=== Modulo ==={Fore.RESET}\n")
+                modulo()
+
+            elif operation == 7:
+                print(f"{Style.BRIGHT}=== Power ==={Fore.RESET}\n")
+                power()
+
+            elif operation == 8:
+                print(f"{Style.BRIGHT}=== Square root ==={Fore.RESET}\n")
+                square_root()
+
+            elif operation == 9:
+                print(f"{Style.BRIGHT}======= Historial ========{Fore.RESET}\n")
+                historial()
+
+            elif operation == 10:
+                print("\nCerrando el sistema...")
+                time.sleep(1)
+                print("¡Hasta luego! Vuelve pronto.\n")
+                sys.exit()
+                
+            else:
+                try:
+                    print(menu)
+                    operation = int(input(f"Elige una operacion:\n{Fore.MAGENTA}>>>{Fore.RESET} "))
+                except ValueError as e:
+                    print(Fore.RED + f"[ERROR] {e}")
+                clear_terminal()
