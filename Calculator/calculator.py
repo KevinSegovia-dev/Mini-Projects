@@ -27,16 +27,16 @@ class Calculator:
                                ║ 6) Modulo or remainder.          ║
      ████████████████████████  ║ 7) Power.                        ║
      █▄─▄███─▄▄─█▄─█─▄█▄─▄▄─█  ║ 8) Square root.                  ║
-     ██─██▀█─██─██─█─███─▄█▀█  ║ 9) Historial.                    ║
+     ██─██▀█─██─██─█─███─▄█▀█  ║ 9) History.                      ║
      ▀▄▄▄▄▄▀▄▄▄▄▀▀▄▄▄▀▀▄▄▄▄▄█  ║ 10) exit.                        ║ 
                                ╚══════════════════════════════════╝
         """
         while True:
             try:
                 print(menu)
-                operation = int(input(f"Elige una operacion:\n{Fore.MAGENTA}>>>{Fore.RESET} "))
-            except ValueError as e:
-                print(Fore.RED + f"[ERROR] {e}")
+                operation = int(input(f"Choose an operation:\n{Fore.MAGENTA}>>>{Fore.RESET} "))
+            except ValueError:
+                print(Fore.RED + f"[ERROR] You must enter a number.")
             clear_terminal()
             
             if operation == 1:
@@ -73,18 +73,18 @@ class Calculator:
 
             elif operation == 9:
                 print(f"{Style.BRIGHT}======= Historial ========{Fore.RESET}\n")
-                historial()
+                history()
 
             elif operation == 10:
-                print("\nCerrando el sistema...")
+                print("\nClosing the system...")
                 time.sleep(1)
-                print("¡Hasta luego! Vuelve pronto.\n")
+                print("See you later!\n")
                 sys.exit()
                 
             else:
                 try:
                     print(menu)
-                    operation = int(input(f"Elige una operacion:\n{Fore.MAGENTA}>>>{Fore.RESET} "))
-                except ValueError as e:
-                    print(Fore.RED + f"[ERROR] {e}")
+                    operation = int(input(f"Choose an operation:\n{Fore.MAGENTA}>>>{Fore.RESET} "))
+                except ValueError:
+                    print(Fore.RED + f"[ERROR] You must enter a number.")
                 clear_terminal()
