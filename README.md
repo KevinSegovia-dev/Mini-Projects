@@ -3,7 +3,7 @@ A collection of Python projects created throughout my journey as a programmer.
 
 ## About
 
-This repository contains beginner, intermediate, and occasionally advanced projects that I build while learning new concepts and technologies.
+This repository contains beginner projects that I build while learning new concepts and technologies.
 
 Most of these projects focus on:
 - Problem solving
