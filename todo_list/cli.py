@@ -12,7 +12,7 @@ class CLI:
 
         self.parser.add_argument("-name", "--name", type=str, help="New task name")
         self.parser.add_argument("-description", "--description", type=str, help="New task description")
-        self.parser.add_argument("-status", "--status", choices=["not started", "in progress", "completed"], help="New task state")
+        self.parser.add_argument("-status", "--status", choices=["not-started", "in-progress", "completed"], help="New task state")
 
         self.parser.add_argument("-delete", "--delete", type=int, help="Delete a task by ID")
 
@@ -44,6 +44,3 @@ class CLI:
     
     def command_delete_task(self):
         pass
-
-
-
