@@ -1,5 +1,6 @@
 from cli import CLI
 
-cli = CLI()
-result = cli.command_update_task()
-print(result)
+if __name__ == '__main__':
+    cli = CLI()
+    result = cli.command_update_task()
+    print(result)

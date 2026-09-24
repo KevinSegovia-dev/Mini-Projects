@@ -4,3 +4,4 @@ class Task:
         self.name = name
         self.description = description
         self.created_at = created_at
+        self.state = state
