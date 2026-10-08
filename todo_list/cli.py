@@ -3,9 +3,10 @@ import argparse
 class CLI:
     def __init__(self):
         self.parser = argparse.ArgumentParser()
+        
         self.parser.add_argument("-new", "--new", nargs=2, metavar=("name", "description"), help="Create a new task with two arguments")
 
-        self.parser.add_argument("-show", "--show",  action='store_true', help="View all tasks")
+        self.parser.add_argument("-show", "--show", action='store_true', help="View all tasks")
 
         self.parser.add_argument("-update", "--update", type=int, help="ID of the task to edit")
 
@@ -15,9 +16,9 @@ class CLI:
 
         self.parser.add_argument("-delete", "--delete", type=int, help="Delete a task by ID")
 
-    def command_update_task(self):
+    def command(self):
         self.args = self.parser.parse_args()
-
+        
         id_task = self.args.update
         new_name = self.args.name
         new_description = self.args.description
@@ -25,19 +26,19 @@ class CLI:
         
         if self.args.new:
             name, description = self.args.new
-            return name, description
+            return ("new", name, description)
         
         if self.args.show:
-            return "Successful task"
+            return ("show",)
         
         if self.args.update:
             if self.args.update and not (new_name, new_description, new_status):
-                self.parser.error("-update requires at least 1 argument to change (-name, -description, etc.)")
+                self.parser.error("-update requires at least 1 argument to change (-name, -description, -status)")
 
             if new_name is None and new_description is None and new_status is None:
-                self.parser.error("You must specify at least one field to edit (-name, -description, etc.)")
-        
-            return (id_task,new_name,new_description,new_status)
-        
+                self.parser.error("You must specify at least one field to edit (-name, -description, -status)")
+
+            return ("update", id_task,new_name,new_description,new_status)
+
         if self.args.delete:
-            return "Successful task"
+            return ("delete", self.args.delete)

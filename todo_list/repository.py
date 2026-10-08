@@ -7,8 +7,8 @@ class JsonRepository:
     def open_json(self):
         pass
     
-    def send_data(self):
+    def obtain_data(self):
         pass
     
-    def obtain_data(self):
+    def send_data(self):
         pass
