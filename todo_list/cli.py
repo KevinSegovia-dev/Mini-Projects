@@ -4,7 +4,7 @@ class CLI:
     def __init__(self):
         self.parser = argparse.ArgumentParser()
         
-        self.parser.add_argument("-new", "--new", nargs=2, metavar=("name", "description"), help="Create a new task with two arguments")
+        self.parser.add_argument("-new", "--new", nargs="+", metavar=("name", "description"), help="Create a new task with two arguments")
 
         self.parser.add_argument("-show", "--show", action='store_true', help="View all tasks")
 
@@ -25,8 +25,15 @@ class CLI:
         new_status = self.args.status
         
         if self.args.new:
-            name, description = self.args.new
-            return ("new", name, description)
+            if len(self.args.new) == 1:
+                name = self.args.new[0]
+                description = None
+                return ("new", name, description)
+            elif len(self.args.new) == 2:
+                name, description = self.args.new
+                return ("new", name, description)
+            else:
+                self.parser.error("The -new argument requires a maximum of 2 values ​​(name and description).")
         
         if self.args.show:
             return ("show",)

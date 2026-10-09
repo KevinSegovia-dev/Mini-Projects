@@ -1,14 +1,14 @@
-from manager import TaskManager
+import json
 
 class JsonRepository:
     def __init__(self):
-        self.manager = TaskManager()
-    
-    def open_json(self):
         pass
     
-    def obtain_data(self):
-        pass
-    
-    def send_data(self):
-        pass
+    def write_json(self):
+        with open("tasks.json", "w", encoding="utf-8") as file:
+            pass
+        
+    def read_json(self):
+        with open("tasks.json", "r", encoding="utf-8") as file:
+            tasks = json.load(file)
+            return tasks
