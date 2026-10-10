@@ -1,0 +1,25 @@
+{
+    "tasks": [
+        {
+            "id" : 1,
+            "name" : "Crear un programa comercial",
+            "description" : "",
+            "created_at" : "10/10/2026",
+            "state" : "not-started"
+        },
+        {
+            "id" : 2,
+            "name" : "Lavar los platos asdad adsa sad as",
+            "description" : "",
+            "created_at" : "10/10/2026",
+            "state" : "not-started"
+        },
+        {
+            "id" : 3,
+            "name" : "barrer la habitacion",
+            "description" : "",
+            "created_at" : "10/10/2026",
+            "state" : "not-started"
+        }
+    ]
+}
