@@ -15,6 +15,8 @@ class CLI:
         self.parser.add_argument("-status", "--status", choices=["not-started", "in-progress", "completed"], help="New task state")
 
         self.parser.add_argument("-delete", "--delete", type=int, help="Delete a task by ID")
+        
+        self.parser.add_argument("-view", "--view", type=int, help="View a task in full")
 
     def command(self):
         self.args = self.parser.parse_args()
@@ -49,3 +51,6 @@ class CLI:
 
         if self.args.delete:
             return ("delete", self.args.delete)
+        
+        if self.args.view:
+            return ("view", self.args.view)

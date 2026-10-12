@@ -3,14 +3,14 @@
         {
             "id" : 1,
             "name" : "Crear un programa comercial",
-            "description" : "",
+            "description" : "asdad",
             "created_at" : "10/10/2026",
             "state" : "not-started"
         },
         {
             "id" : 2,
-            "name" : "Lavar los platos asdad adsa sad as",
-            "description" : "",
+            "name" : "Lavar los platos, la ropa y las sabanas",
+            "description" : "dada",
             "created_at" : "10/10/2026",
             "state" : "not-started"
         },
