@@ -1,6 +1,6 @@
 from task import Task
 from repository import JsonRepository
-import time
+from datetime import datetime
 
 
 class TaskManager:
@@ -15,7 +15,7 @@ class TaskManager:
         operation = command[0]
 
         if operation == "new":
-            print(self.new(*command))
+            self.new(*command)
         elif operation == "show":
             self.show()
         elif operation == "update":
@@ -37,11 +37,30 @@ class TaskManager:
             return text[:limit - 3] + "..."
 
         return text
+    
+    def current_date(self):
+        now = datetime.now()
+        return now.strftime("%d/%m/%Y")
 
     #=====================================================
     
     def new(self, *command):
-        pass
+        data = self.repository.read_json()
+        
+        if data is None:
+            print("The tasks could not be read.")
+            return
+        
+        tasks = data.get("tasks", [])
+        
+        list = []
+        for task in tasks:
+            task_id = task.get("id", "?")
+            list.append(task_id)
+            
+        self.new_task = Task(id=(max(list) + 1), name=command[1], description=command[2], created_at=self.current_date(), state="not-started")
+        
+        print(self.new_task)
 
     def show(self):
         data = self.repository.read_json()
